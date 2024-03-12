@@ -4,3 +4,6 @@ class Point:
         self.y = y
     def getCoordinate(self):
         return (self.x,self.y)
+    def printCoordinate(self):
+        print("x :", self.x, "y :", self.y)
+
