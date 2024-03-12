@@ -2,7 +2,7 @@ import Point
 import numpy as np
 import Display
 import matplotlib.pyplot as plt
-
+import time
 
 class BezierCurve:
     def __init__(self, Iterate) -> None:
@@ -23,6 +23,8 @@ class BezierCurve:
 
     def createCurve(self, brute : bool):
         if brute:
+            start = time.time()
+            print("Brute Force")
             increment = 1 / (2**self.nIteration)
             t = float(0)
             p0 = self.points[0]
@@ -34,10 +36,28 @@ class BezierCurve:
                 r0 = (1-t)*q0 + q1*t
                 self.results.append(r0)
                 t += increment
+            end = time.time()
+            Display.plotDot(self.points[0].x, self.points[0].y)
+            Display.plotDot(self.points[1].x, self.points[1].y)
+            Display.plotDot(self.points[2].x, self.points[2].y)
+            Display.plotLine(main.points)
+            Display.plotLine(main.results)
+            plt.show()
+            print((end - start) * 1000, "ms")
         else:
+            start = time.time()
+            print("Divide and Conquer")
             self.addSol(self.points[0])
             self.createCurveDnc(self.nIteration, self.points[0], self.points[1], self.points[2])
             self.addSol(self.points[2])
+            end = time.time()
+            Display.plotDot(self.points[0].x, self.points[0].y)
+            Display.plotDot(self.points[1].x, self.points[1].y)
+            Display.plotDot(self.points[2].x, self.points[2].y)
+            Display.plotLine(main.points)
+            Display.plotLine(main.results)
+            plt.show()
+            print((end - start) * 1000, "ms")
 
     def createCurveDnc(self, Iterations : int, p0 : Point, p1 : Point, p2 : Point):
         if Iterations == 0:
@@ -58,10 +78,11 @@ class BezierCurve:
         for x in self.results:
             x.printCoordinate()
 
-main = BezierCurve(5)
+main = BezierCurve(2)
 main.add(Point.Point(2,2))
 main.add(Point.Point(6,5))
 main.add(Point.Point(9,3))
 main.createCurve(False)
-main.printResult()
+# main.printResult()
+
 
