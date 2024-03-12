@@ -3,7 +3,7 @@ class Point:
         self.x = x
         self.y = y
 
-    def __mul__(self, k : float):
+    def __mul__(self, k):
         return Point(self.x*k, self.y*k)
     
     def __rmul__(self, k):
@@ -14,6 +14,15 @@ class Point:
 
     def __radd__(self, other):
         return self.__add__(other)
+    
+    def __truediv__(self, k):
+        return Point(self.x/k, self.y/k)
+    
+    def __rtruediv__(self,k):
+        return self.__truediv__(k)
+    
+    def getMidpoint(k1 ,k2):
+        return Point(k1 + k2)/2
     
     def getCoordinate(self):
         return (self.x,self.y)
