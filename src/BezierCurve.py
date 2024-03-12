@@ -8,11 +8,17 @@ class BezierCurve:
         self.count = 0
         self.nIteration = Iterate
         self.results = []
+
     def add(self, point : Point):
         self.count += 1
         self.points.append(point)
+
+    def addSol(self, point : Point):
+        self.results.append(point)
+
     def clearResults(self):
         self.res
+
     def createCurve(self, brute : bool):
         if brute:
             increment = 1 / (2**self.nIteration)
@@ -26,24 +32,33 @@ class BezierCurve:
                 r0 = (1-t)*q0 + q1*t
                 self.results.append(r0)
                 t += increment
-            else:
-                print("ganteng")
+        else:
+            self.addSol(self.points[0])
+            self.createCurveDnc(self.nIteration, self.points[0], self.points[1], self.points[2])
+            self.addSol(self.points[2])
+
     def createCurveDnc(self, Iterations : int, p0 : Point, p1 : Point, p2 : Point):
         if Iterations == 0:
+            pass
         else:
-            
-
+            midPoint0 = (p0 + p1)/2
+            midPoint1 = (p1 + p2)/2
+            midPoint2 = (midPoint0 + midPoint1)/2
+            self.createCurveDnc(Iterations-1, p0, midPoint0, midPoint2)
+            self.addSol(midPoint2)
+            self.createCurveDnc(Iterations-1, midPoint2, midPoint1, p2)
 
     def printPoints(self):
         for x in self.points:
             x.printCoordinate()
+
     def printResult(self):
         for x in self.results:
             x.printCoordinate()
 
-main = BezierCurve(2)
+main = BezierCurve(5)
 main.add(Point.Point(2,2))
 main.add(Point.Point(6,5))
 main.add(Point.Point(9,3))
-main.createCurve(True)
+main.createCurve(False)
 main.printResult()
