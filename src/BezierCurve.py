@@ -10,6 +10,7 @@ class BezierCurve:
         self.count = 0
         self.nIteration = Iterate
         self.results = []
+        self.hasil_iterasi = []
     def add(self, point : Point):
         self.count += 1
         self.points.append(point)
@@ -34,6 +35,13 @@ class BezierCurve:
             plt.show()
         else:
             print("ganteng")
+    def dnc(self) :
+        if (self.nIteration == 0) :
+            print("beres")
+        else :
+            
+            self.nIteration -= 1
+
     def printPoints(self):
         for x in self.points:
             x.printCoordinate()
