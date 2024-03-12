@@ -1,6 +1,8 @@
 import Point
 import numpy as np
+import Display
 import matplotlib.pyplot as plt
+
 
 class BezierCurve:
     def __init__(self, Iterate) -> None:
@@ -11,7 +13,7 @@ class BezierCurve:
     def add(self, point : Point):
         self.count += 1
         self.points.append(point)
-    def createCruve(self, brute : bool):
+    def createCurve(self, brute : bool):
         if brute:
             increment = 1 / (2**self.nIteration)
             t = float(0)
@@ -24,8 +26,14 @@ class BezierCurve:
                 R1 = (1-t)*Q1 + Q2*t
                 self.results.append(R1)
                 t += increment
-            else:
-                print("ganteng")
+            Display.plotDot(P1.x, P1.y)
+            Display.plotDot(P2.x, P2.y)
+            Display.plotDot(P3.x, P3.y)
+            Display.plotLine(main.points)
+            Display.plotLine(main.results)
+            plt.show()
+        else:
+            print("ganteng")
     def printPoints(self):
         for x in self.points:
             x.printCoordinate()
@@ -33,9 +41,10 @@ class BezierCurve:
         for x in self.results:
             x.printCoordinate()
 
-main = BezierCurve(2)
+main = BezierCurve(10)
 main.add(Point.Point(2,2))
 main.add(Point.Point(6,5))
 main.add(Point.Point(9,3))
-main.createCruve(True)
+main.createCurve(True)
 main.printResult()
+
