@@ -21,6 +21,9 @@ class Point:
     def __rtruediv__(self,k):
         return self.__truediv__(k)
     
+    def __eq__(self, point):
+        return self.x == point.x and self.y == point.y
+    
     def getMidpoint(k1 ,k2):
         return Point(k1 + k2)/2
     
