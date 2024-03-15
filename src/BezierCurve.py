@@ -62,14 +62,62 @@ class BezierCurve:
             print(">> Using the DIVIDE AND CONQUER approach <<")
             self.addSol(self.points[0])
             # first anchor point addition
-            for i in range(len(self.points)-2):
-                self.createCurveDnc(self.nIteration, self.points[0+i], self.points[1+i], self.points[2+i])
+            # for i in range(len(self.points)-2):
+            #     self.createCurveDnc(self.nIteration, self.points[0+i], self.points[1+i], self.points[2+i])
+            self.createCurvenDnc(self.nIteration, self.points)
             self.addSol(self.points[len(self.points)-1])
             end = time.time()
             print(">> DIVIDE AND CONQUER Runtime : ", end="")
             print((end - start) * 1000, "ms")
         print(">> Displaying Curve... <<")
         return end - start
+
+    def findMidpoint(self, list_of_points, anchor) :
+        if (len(list_of_points) == 1) :
+            return list_of_points[0]
+        else :
+            midpoints = [] 
+            for i in range(len(list_of_points) - 1) :
+                middle = (list_of_points[0+i] + list_of_points[1+i])/2
+                midpoints.append(middle)
+            if (len(midpoints) > 1) :
+                anchor.append(midpoints[0])
+                anchor.append(midpoints[-1])
+            return self.findMidpoint(midpoints, anchor)
+
+    def createCurvenDnc(self, Iterations, list_of_points) :
+        print(f"==========Iteration {Iterations}=============")
+        if (Iterations == 0) :
+            pass
+        else :
+            anchor = []
+            middle = self.findMidpoint(list_of_points, anchor)
+            leftlist = [list_of_points[0]]
+            rightlist = [list_of_points[-1]]
+            for i in range(len(anchor)) :
+                if (i % 2 == 0) :
+                    leftlist.append(anchor[i])
+                else :
+                    rightlist.append(anchor[i])
+            leftlist.append(middle)
+            rightlist.append(middle)
+            right = []
+            for j in range(len(rightlist)-1, -1, -1) :
+                right.append(rightlist[j])
+            # print("Rightlist : ")
+            # for x in rightlist :
+            #     x.printCoordinate()
+            # print("Right : ")
+            # for x in right :
+            #     x.printCoordinate()
+
+            self.createCurvenDnc(Iterations-1, leftlist)
+            self.addSol(middle)
+            self.createCurvenDnc(Iterations-1, right)
+
+
+
+
 
     def createCurveDnc(self, Iterations : int, p0 : Point, p1 : Point, p2 : Point):
         """
@@ -109,11 +157,16 @@ class BezierCurve:
         Display.plotLine(self.results)
         plt.show()
 
-main = BezierCurve(15)
-main.add(Point.Point(-2,-8))
+main = BezierCurve(10)
+main.add(Point.Point(0,0))
 main.add(Point.Point(2,2))
-main.add(Point.Point(6,5))
-main.createCurve(True)
+main.add(Point.Point(4,3))
+main.add(Point.Point(6,2))
+main.add(Point.Point(8,0))
+main.add(Point.Point(-2,-9))
+main.add(Point.Point(-9,0))
+# main.add(Point.Point(8,-8))
+main.createCurve(False)
 main.displayCurve()
 # main.printResult()
 
