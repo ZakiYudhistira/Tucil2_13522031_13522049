@@ -147,6 +147,7 @@ class BezierCurve:
         """
         Bezier curve render
         """
+        plt.title("Bezier Curve")
         Display.plotDotLine(self.points)
         Display.plotLine(self.points)
         if (show) :
