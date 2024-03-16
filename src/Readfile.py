@@ -1,6 +1,8 @@
 import Point
 path = "test/"
 
+# File handling functions
+
 def readFile():
     result = []
     file_name = input("Enter file name: ")
@@ -14,3 +16,4 @@ def readFile():
         print("File doesn't exist, terminating program...")
         exit()
     return result
+# Returns an array of points

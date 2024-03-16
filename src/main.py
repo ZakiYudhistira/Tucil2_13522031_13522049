@@ -2,6 +2,8 @@ import BezierCurve as Bc
 import Point
 import Readfile as Rf
 
+# Main program execution
+
 try :
     print("\n     || Welcome to the Bezier Curve Generator ||")
     print("|| Developed by : Zaki Yudhistira and Vanson Kurnialim ||\n")
