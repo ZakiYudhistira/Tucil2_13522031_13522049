@@ -37,12 +37,12 @@ try :
         print("Invalid input, terminating program...")
         exit()
 
-        for i in range(n) :
-        # points input
-            print(f"Point {i+1}")
-            x = float(input("Enter x coordinate : "))
-            y = float(input("Enter y coordinate : "))
-            main.add(Point.Point(x,y))
+    for i in range(n) :
+    # points input
+        print(f"Point {i+1}")
+        x = float(input("Enter x coordinate : "))
+        y = float(input("Enter y coordinate : "))
+        main.add(Point.Point(x,y))
 
     else:
         print("Input not recongnized, terminating program...")
