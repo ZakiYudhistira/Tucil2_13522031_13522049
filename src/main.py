@@ -57,6 +57,7 @@ try :
         else :
             print("Wrong input, try again!")
     
+    show = False
     if (not Brute) :
         print("\nDo you want to see the iteration process?")
         show = str(input("Press Y to see (Y/N) : "))
@@ -73,4 +74,5 @@ else :
     main.createCurve(Brute)
     main.displayCurve(show)
 
+print(len(main.results))
 print("\nEnd of execution...\nThank you for using our program !!!")
