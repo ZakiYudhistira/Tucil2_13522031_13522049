@@ -13,6 +13,7 @@ class BezierCurve:
         self.points = [] # Anchor points
         self.nIteration = Iterate
         self.results = [] # Result points
+        self.proses = []
 
     def add(self, point : Point):
         """
@@ -103,29 +104,30 @@ class BezierCurve:
                 else :
                     rightlist.insert(0,anchor[i])
             leftlist.append(middle)
-            rightlist.insert(0,middle)
+            rightlist.insert(0,middle)            
 
             self.createCurvenDnc(Iterations-1, leftlist)
             self.addSol(middle)
             self.createCurvenDnc(Iterations-1, rightlist)
 
+            # saving iteration points for process visualization
+            for i in range(1, len(rightlist)) :
+                leftlist.append(rightlist[i])
+            self.proses.append(leftlist)
 
-
-
-
-    def createCurveDnc(self, Iterations : int, p0 : Point, p1 : Point, p2 : Point):
-        """
-        Using the divide and conquer approach in the bezier curve generation
-        """
-        if Iterations == 0:
-            pass
-        else:
-            midPoint0 = (p0 + p1)/2
-            midPoint1 = (p1 + p2)/2
-            midPoint2 = (midPoint0 + midPoint1)/2
-            self.createCurveDnc(Iterations-1, p0, midPoint0, midPoint2)
-            self.addSol(midPoint2)
-            self.createCurveDnc(Iterations-1, midPoint2, midPoint1, p2)
+    # def createCurveDnc(self, Iterations : int, p0 : Point, p1 : Point, p2 : Point):
+    #     """
+    #     Using the divide and conquer approach in the bezier curve generation
+    #     """
+    #     if Iterations == 0:
+    #         pass
+    #     else:
+    #         midPoint0 = (p0 + p1)/2
+    #         midPoint1 = (p1 + p2)/2
+    #         midPoint2 = (midPoint0 + midPoint1)/2
+    #         self.createCurveDnc(Iterations-1, p0, midPoint0, midPoint2)
+    #         self.addSol(midPoint2)
+    #         self.createCurveDnc(Iterations-1, midPoint2, midPoint1, p2)
 
     def printPoints(self):
         """
@@ -141,13 +143,14 @@ class BezierCurve:
         for x in self.results:
             x.printCoordinate()
 
-    def displayCurve(self):
+    def displayCurve(self, show):
         """
         Bezier curve render
         """
-        for point in self.points:
-            Display.plotDot(point.x, point.y)
+        Display.plotDotLine(self.points)
         Display.plotLine(self.points)
+        if (show) :
+            Display.plotLineArray(self.proses)
         Display.plotLine(self.results)
         plt.show()
 
