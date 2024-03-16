@@ -39,6 +39,8 @@ X4 Y4
 ```
 ├───README.md
 │
+├───bin
+│   ├─── run.bat
 ├───doc  
 │   ├─── Tucil_13522031_13522039.pdf
 │                      
