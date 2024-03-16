@@ -32,17 +32,17 @@ try :
             exit()
         main = Bc.BezierCurve(iterations)
 
-    n = int(input("Input the number of points : "))
-    if (iterations < 1) :
-        print("Invalid input, terminating program...")
-        exit()
+        n = int(input("Input the number of points : "))
+        if (iterations < 1) :
+            print("Invalid input, terminating program...")
+            exit()
 
-    for i in range(n) :
-    # points input
-        print(f"Point {i+1}")
-        x = float(input("Enter x coordinate : "))
-        y = float(input("Enter y coordinate : "))
-        main.add(Point.Point(x,y))
+        for i in range(n) :
+        # points input
+            print(f"Point {i+1}")
+            x = float(input("Enter x coordinate : "))
+            y = float(input("Enter y coordinate : "))
+            main.add(Point.Point(x,y))
     
     main.printPoints()
 
