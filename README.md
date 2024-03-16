@@ -15,7 +15,7 @@ This program generates a bezier curve using both DIVIDE AND CONQUER and BRUTEFOR
 
 ## Installation
 
-1. Make sure python is installed and downloaded
+1. Make sure python is downloaded and installed
 2. Enter this command in the terminal to install matplotlib
 ```sh
 pip install matplotlib
