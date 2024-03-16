@@ -1,5 +1,7 @@
 import matplotlib.pyplot as plt
-    
+
+# Displaying functions
+
 def plotDot(x, y) :
     plt.plot(x, y, 'ro')
 

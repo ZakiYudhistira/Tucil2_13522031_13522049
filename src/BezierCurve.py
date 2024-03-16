@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 import time
 import math as mt
 
+# Bezier Curve generationn algorithm and class
+
 class BezierCurve:
     def __init__(self, Iterate) -> None:
         # Attributes assignment

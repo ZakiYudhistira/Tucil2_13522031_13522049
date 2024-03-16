@@ -1,12 +1,11 @@
-# Tugas Kecil IF2211
-## Bezier Curve Generator
+# Tugas Kecil IF2211 | Bezier Curve Generator
 ## Contributors
 | NIM | Name |
 | ------ | ------ |
 | 13522031 | Zaki Yudhistira Candra |
 | 13522049 | Vanson Kurnialim |
 
-## Bezier Curve
+## Description
 
 This program generates a bezier curve using both DIVIDE AND CONQUER and BRUTEFORCE approach. The bezier curve formula is used in the BRUTEFORCE approach.
 
@@ -33,4 +32,19 @@ X1 Y1
 X2 Y2
 X3 Y3
 X4 Y4
+```
+
+## File Structure
+```
+├───README.md
+│
+├───doc  
+│   ├─── Tucil_13522031_13522039.pdf
+│                      
+├───src                                              
+    ├─── BezierCurve.py
+    ├─── Display.py
+    ├─── main.py
+    ├─── Point.py
+    ├─── Readfile.py
 ```
