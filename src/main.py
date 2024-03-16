@@ -15,6 +15,8 @@ try :
     # n iteration inputs / depth
 
     n = int(input("Input the number of points : "))
+    if (iterations < 1) :
+        print(exception)
 
     for i in range(n) :
         print(f"Point {i+1}")
@@ -24,13 +26,21 @@ try :
 
     Brute = -1
     while (Brute == -1) :
-        confirmation = str(input("Using BruteForce method? (Y/N) : "))
+        confirmation = str(input("\nUsing BruteForce method? (Y/N) : "))
         if (confirmation == "y" or confirmation == "Y") :
             Brute = True
         elif (confirmation == "n" or confirmation == "N") :
             Brute = False 
         else :
             print("Wrong input, try again!")
+    
+    if (not Brute) :
+        print("\nDo you want to see the iteration process?")
+        show = str(input("Press Y to see (Y/N) : "))
+        if (show == "Y" or show == "y") :
+            show = True 
+        else :
+            show = False 
         
 except :
     print("Input invalid, the program will terminate...")
@@ -38,4 +48,4 @@ except :
 else :
     print("\n")
     main.createCurve(Brute)
-    main.displayCurve()
+    main.displayCurve(show)
