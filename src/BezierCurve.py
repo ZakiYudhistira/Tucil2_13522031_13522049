@@ -69,6 +69,9 @@ class BezierCurve:
         return end - start
 
     def findMidpoint(self, list_of_points, anchor) :
+        """
+        To return a midpoint between 2 points
+        """
         if (len(list_of_points) == 1) :
             return list_of_points[0]
         else :
@@ -82,6 +85,9 @@ class BezierCurve:
             return self.findMidpoint(midpoints, anchor)
 
     def createCurvenDnc(self, Iterations, list_of_points) :
+        """
+        Bezier curve divide and conquer approach
+        """
         if (Iterations == 0) :
             pass
         else :
