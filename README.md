@@ -47,4 +47,7 @@ X4 Y4
     ├─── main.py
     ├─── Point.py
     ├─── Readfile.py
+├───test
+    ├─── points.txt
+    ├─── points1.txt
 ```
