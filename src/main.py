@@ -32,7 +32,10 @@ try :
             exit()
         main = Bc.BezierCurve(iterations)
 
-        n = int(input("Input the number of points : "))
+    n = int(input("Input the number of points : "))
+    if (iterations < 1) :
+        print("Invalid input, terminating program...")
+        exit()
 
         for i in range(n) :
         # points input
@@ -57,6 +60,14 @@ try :
             Brute = False 
         else :
             print("Wrong input, try again!")
+    
+    if (not Brute) :
+        print("\nDo you want to see the iteration process?")
+        show = str(input("Press Y to see (Y/N) : "))
+        if (show == "Y" or show == "y") :
+            show = True 
+        else :
+            show = False 
         
 except :
     print("Input invalid, the program will terminate...")
@@ -64,6 +75,6 @@ except :
 else :
     print("")
     main.createCurve(Brute)
-    main.displayCurve()
+    main.displayCurve(show)
 
 print("\nEnd of execution...\nThank you for using our program !!!")
