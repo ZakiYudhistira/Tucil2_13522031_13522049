@@ -1,5 +1,7 @@
 import matplotlib.pyplot as plt
-    
+
+# Displaying functions
+
 def plotDot(x, y) :
     """
     plot a point

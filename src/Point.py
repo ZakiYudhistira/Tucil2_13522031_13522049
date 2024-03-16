@@ -1,4 +1,5 @@
 class Point:
+    # Defines the point class implemented in a cartesian fashion
     def __init__(self,x,y) -> None:
         self.x = x
         self.y = y
