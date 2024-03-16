@@ -20,11 +20,12 @@ This program generates a bezier curve using both DIVIDE AND CONQUER and BRUTEFOR
 ```sh
 pip install matplotlib
 ```
-3. Navigate to the directory of the program and enter the command below :
+4. Clone the repository
+5. Navigate to the directory of the program and enter the command below : / or just navigate to the bin folder and run the bat file
 ```sh
 python src/main.py
 ```
-4. Provide a file if you want to input the coordinates using a custom file
+6. Provide a file if you want to input the coordinates using a custom file
 Note : Follow the file template below :
 ```
 n number of points
@@ -42,12 +43,14 @@ X4 Y4
 │   ├─── Tucil_13522031_13522039.pdf
 │                      
 ├───src                                              
-    ├─── BezierCurve.py
-    ├─── Display.py
-    ├─── main.py
-    ├─── Point.py
-    ├─── Readfile.py
+│   ├─── BezierCurve.py
+│   ├─── Display.py
+│   ├─── main.py
+│   ├─── Point.py
+│   ├─── Readfile.py
 ├───test
     ├─── points.txt
     ├─── points1.txt
 ```
+
+Thank you for your visit !!!
