@@ -74,5 +74,4 @@ else :
     main.createCurve(Brute)
     main.displayCurve(show)
 
-print(len(main.results))
 print("\nEnd of execution...\nThank you for using our program !!!")
