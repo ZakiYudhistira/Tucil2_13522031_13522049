@@ -43,10 +43,6 @@ try :
         x = float(input("Enter x coordinate : "))
         y = float(input("Enter y coordinate : "))
         main.add(Point.Point(x,y))
-
-    else:
-        print("Input not recongnized, terminating program...")
-        exit()
     
     main.printPoints()
 
