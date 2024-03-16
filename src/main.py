@@ -1,29 +1,53 @@
 import BezierCurve as Bc
 import Point
+import Readfile as Rf
 
 try :
-    print("\n    || Welcome to the Bezier Curve Generator ||")
+    print("\n     || Welcome to the Bezier Curve Generator ||")
     print("|| Developed by : Zaki Yudhistira and Vanson Kurnialim ||\n")
-    # print("====================================================")
-    print("=--------------------------------------------------=\n")
+    print("=-------------------------------------------------------=\n")
     # Welcome message
 
-    iterations = int(input("Input the number of iterations : "))
-    if (iterations < 1) :
-        print(exception)
-    main = Bc.BezierCurve(iterations)
-    # n iteration inputs / depth
+    flag = input("Do you want to use a file input (Y/N) ? : ").lower()
 
-    n = int(input("Input the number of points : "))
+    if (flag == "y"):
+        print(">> Using file input <<")
+        points_temp = Rf.readFile()
+        iterations = int(input("Input the number of iterations / depth : "))
+        if (iterations < 1) :
+        # n iteration inputs / depth
+            print("Invalid input, terminating program...")
+            exit()
+            # error handling, to be caught by exception
+        main = Bc.BezierCurve(iterations)
+        main.points = points_temp
 
-    for i in range(n) :
-        print(f"Point {i+1}")
-        x = float(input("Enter x coordinate : "))
-        y = float(input("Enter y coordinate : "))
-        main.add(Point.Point(x,y))
+    elif (flag == "n"):
+        iterations = int(input("Input the number of iterations / depth : "))
+        if (iterations < 1) :
+        # n iteration inputs / depth
+            print("Invalid input, terminating program...")
+            exit()
+        main = Bc.BezierCurve(iterations)
+
+        n = int(input("Input the number of points : "))
+
+        for i in range(n) :
+        # points input
+            print(f"Point {i+1}")
+            x = float(input("Enter x coordinate : "))
+            y = float(input("Enter y coordinate : "))
+            main.add(Point.Point(x,y))
+
+    else:
+        print("Input not recongnized, terminating program...")
+        exit()
+    
+    main.printPoints()
 
     Brute = -1
     while (Brute == -1) :
+        # brute force usage
         confirmation = str(input("Using BruteForce method? (Y/N) : "))
         if (confirmation == "y" or confirmation == "Y") :
             Brute = True
@@ -36,6 +60,8 @@ except :
     print("Input invalid, the program will terminate...")
 
 else :
-    print("\n")
+    print("")
     main.createCurve(Brute)
     main.displayCurve()
+
+print("\nEnd of execution...\nThank you for using our program !!!")
