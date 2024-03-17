@@ -15,7 +15,7 @@ def plotDotLine(list_of_dot) :
     for i in range(len(list_of_dot)) :
         plotDot(list_of_dot[i].x, list_of_dot[i].y)
 
-def plotLine(list_of_dot) :
+def plotLine(list_of_dot, style) :
     """
     plot a line from a list of point
     """
@@ -24,7 +24,7 @@ def plotLine(list_of_dot) :
     for i in range(len(list_of_dot)) :
         x.append(list_of_dot[i].x)
         y.append(list_of_dot[i].y)
-    plt.plot(x, y)
+    plt.plot(x, y, linestyle = style)
 
 def plotLineArray(list_of_line) :
     """
@@ -32,4 +32,4 @@ def plotLineArray(list_of_line) :
     """
     for i in range(len(list_of_line)) :
         # plotDotLine(list_of_line[i])
-        plotLine(list_of_line[i])
+        plotLine(list_of_line[i], "dashed")

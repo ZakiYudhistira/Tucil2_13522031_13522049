@@ -149,10 +149,10 @@ class BezierCurve:
         """
         plt.title("Bezier Curve")
         Display.plotDotLine(self.points)
-        Display.plotLine(self.points)
+        Display.plotLine(self.points, "solid")
         if (show) :
             Display.plotLineArray(self.proses)
-        Display.plotLine(self.results)
+        Display.plotLine(self.results, "solid")
         plt.show()
 
 # main = BezierCurve(18)
