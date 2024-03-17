@@ -128,6 +128,7 @@ class BezierCurve:
     #         self.createCurveDnc(Iterations-1, p0, midPoint0, midPoint2)
     #         self.addSol(midPoint2)
     #         self.createCurveDnc(Iterations-1, midPoint2, midPoint1, p2)
+    # Beta version
 
     def printPoints(self):
         """
